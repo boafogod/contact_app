@@ -1,3 +1,4 @@
+import 'package:contact_application/contact_view.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -36,22 +37,63 @@ class HomePage extends StatelessWidget {
       ),
       body: SafeArea(
         child: ListView(
+          shrinkWrap: true,
           children: [
             Padding(
               padding: const EdgeInsets.only(left: 16),
               child: Text('Recent', style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),),
             ),
-            ListTile(
+ListView.separated(
+  shrinkWrap: true,
+  itemBuilder: (BuildContext context, int index){return 
+ ListTile(
+   onTap: (){
+     Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context){
+       return ContactView();
+     }));
+   },
               leading: CircleAvatar(
                 backgroundImage: AssetImage('assets/nature.jpg'),
               ),
-              title: Text('Big Arsenal'),
+              title: Text('Big Arsenal', style: TextStyle(fontSize: 15.0, fontWeight: FontWeight.w600),),
               subtitle: Text('+233541019482'),
-              trailing: Icon(Icons.more_horiz),
-            )
+              trailing: Icon(Icons.more_horiz, size: 30,),
+            );},
+            separatorBuilder: (contex, index){
+              return const Divider();
+            },
+            itemCount: 3,
+            ),
+            const Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+              child: Text('Contacts', style: TextStyle(fontWeight: FontWeight.w600, fontSize: 15 ) ),
+            ),
+            const Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+              child: Text(
+                'A',
+                textAlign: TextAlign.right, style: TextStyle(fontWeight: FontWeight.w600, fontSize: 15 ) ),
+            ),
+            ListView.separated(
+              shrinkWrap: true,
+              itemBuilder: (context, index){
+              return const ListTile(
+              leading: CircleAvatar(
+                backgroundImage: AssetImage('assets/nature.jpg'),
+              ),
+              title: Text('Big Arsenal', style: TextStyle(fontSize: 15.0, fontWeight: FontWeight.w600),),
+              subtitle: Text('+233541019482'),
+              trailing: Icon(Icons.more_horiz, size: 30,),
+            ); 
+            }, separatorBuilder: (context, index){
+              return SizedBox(height: 8,);
+            }, itemCount: 2)
+
           ],
         ),
       ),
+      floatingActionButton: FloatingActionButton(child: Icon(Icons.add),onPressed: () {},
+      backgroundColor: Colors.black,),
     );
   }
 }
