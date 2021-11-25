@@ -2,7 +2,56 @@ import 'package:contact_application/contact_view.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({Key? key}) : super(key: key);
+   HomePage({Key? key}) : super(key: key);
+
+  final List<Map<String,String>> data =[
+    {
+
+    
+      "name":"Kwame Arsenal",
+      "phone": "+233541019482",
+      "email": "boafogod@gmail.com",
+      "country": "Ghana",
+      "region": "Koforidua",
+    },{
+
+    
+      "name":"Audrey Boafo",
+      "phone": "+233584712321",
+      "email": "audreygod@gmail.com",
+      "country": "Ghana",
+      "region": "Koforidua",
+    },{
+
+    
+      "name":"Kendra Boafo",
+      "phone": "+233541000000",
+      "email": "kendragod@gmail.com",
+      "country": "Ghana",
+      "region": "Bono East",
+    },
+    {
+
+    
+      "name":"Ratty Boafo",
+      "phone": "+27778532145",
+      "email": "rattyansong@gmail.com",
+      "country": "Ghana",
+      "region": "Koforidua",
+    },{
+
+    
+      "name":"Eben Boafo",
+      "phone": "+233541019482",
+      "email": "fresharsenalyahoo.com",
+      "country": "Ghana",
+      "region": "Kumasi",
+    },
+
+
+
+    
+  ];
 
   @override
   Widget build(BuildContext context) {
